@@ -1,0 +1,1912 @@
+
+<!doctype html>
+<html lang="zh" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="用 Markdown、LaTeX 与交互组件构建的数学讲义网站">
+      
+      
+        <meta name="author" content="GuitarYuu">
+      
+      
+        <link rel="canonical" href="https://guitaryuu.github.io/math-lecture-site-public/differential-geometry-ictp/lecture-08/">
+      
+      
+        <link rel="prev" href="../lecture-07/">
+      
+      
+        <link rel="next" href="../lecture-09/">
+      
+      
+        
+          <link rel="alternate" href="./" hreflang="zh">
+        
+          <link rel="alternate" href="../../en/differential-geometry-ictp/lecture-08/" hreflang="en">
+        
+      
+      
+      <link rel="icon" href="../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.7">
+    
+    
+      
+        <title>Lecture 8 - 微分几何 ICTP</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.ec1eaa64.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.ab4e12ef.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/extra.css">
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/theme-sjtu.css">
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#8" class="md-skip">
+          跳转至
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="页眉">
+    <a href="../.." title="微分几何 ICTP" class="md-header__button md-logo" aria-label="微分几何 ICTP" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            微分几何 ICTP
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Lecture 8
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="切换到深色模式"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="切换到深色模式" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="m17.75 4.09-2.53 1.94.91 3.06-2.63-1.81-2.63 1.81.91-3.06-2.53-1.94L12.44 4l1.06-3 1.06 3zm3.5 6.91-1.64 1.25.59 1.98-1.7-1.17-1.7 1.17.59-1.98L15.75 11l2.06-.05L18.5 9l.69 1.95zm-2.28 4.95c.83-.08 1.72 1.1 1.19 1.85-.32.45-.66.87-1.08 1.27C15.17 23 8.84 23 4.94 19.07c-3.91-3.9-3.91-10.24 0-14.14.4-.4.82-.76 1.27-1.08.75-.53 1.93.36 1.85 1.19-.27 2.86.69 5.83 2.89 8.02a9.96 9.96 0 0 0 8.02 2.89m-1.64 2.02a12.08 12.08 0 0 1-7.8-3.47c-2.17-2.19-3.33-5-3.49-7.82-2.81 3.14-2.7 7.96.31 10.98 3.02 3.01 7.84 3.12 10.98.31"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="slate" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="切换到浅色模式"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="切换到浅色模式" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 7a5 5 0 0 1 5 5 5 5 0 0 1-5 5 5 5 0 0 1-5-5 5 5 0 0 1 5-5m0 2a3 3 0 0 0-3 3 3 3 0 0 0 3 3 3 3 0 0 0 3-3 3 3 0 0 0-3-3m0-7 2.39 3.42C13.65 5.15 12.84 5 12 5s-1.65.15-2.39.42zM3.34 7l4.16-.35A7.2 7.2 0 0 0 5.94 8.5c-.44.74-.69 1.5-.83 2.29zm.02 10 1.76-3.77a7.131 7.131 0 0 0 2.38 4.14zM20.65 7l-1.77 3.79a7.02 7.02 0 0 0-2.38-4.15zm-.01 10-4.14.36c.59-.51 1.12-1.14 1.54-1.86.42-.73.69-1.5.83-2.29zM12 22l-2.41-3.44c.74.27 1.55.44 2.41.44.82 0 1.63-.17 2.37-.44z"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+      <div class="md-header__option">
+  <div class="md-select">
+    
+    <button class="md-header__button md-icon" aria-label="选择当前语言">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="m12.87 15.07-2.54-2.51.03-.03A17.5 17.5 0 0 0 14.07 6H17V4h-7V2H8v2H1v2h11.17C11.5 7.92 10.44 9.75 9 11.35 8.07 10.32 7.3 9.19 6.69 8h-2c.73 1.63 1.73 3.17 2.98 4.56l-5.09 5.02L4 19l5-5 3.11 3.11zM18.5 10h-2L12 22h2l1.12-3h4.75L21 22h2zm-2.62 7 1.62-4.33L19.12 17z"/></svg>
+    </button>
+    <div class="md-select__inner">
+      <ul class="md-select__list">
+        
+          <li class="md-select__item">
+            <a href="./" hreflang="zh" class="md-select__link">
+              简体中文
+            </a>
+          </li>
+        
+          <li class="md-select__item">
+            <a href="../../en/differential-geometry-ictp/lecture-08/" hreflang="en" class="md-select__link">
+              English
+            </a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</div>
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="搜索" placeholder="搜索" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="查找">
+        
+        <button type="reset" class="md-search__icon md-icon" title="清空当前内容" aria-label="清空当前内容" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+        <div class="md-search__suggest" data-md-component="search-suggest"></div>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            正在初始化搜索引擎
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/GuitarYuu/math-lecture-site-public" title="前往仓库" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"/></svg>
+  </div>
+  <div class="md-source__repository">
+    GuitarYuu/math-lecture-site-public
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+            
+<nav class="md-tabs" aria-label="标签" data-md-component="tabs">
+  <div class="md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../.." class="md-tabs__link">
+        
+  
+  
+    
+  
+  首页
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../" class="md-tabs__link">
+        
+  
+  
+    
+  
+  课程首页
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../preliminaires/" class="md-tabs__link">
+        
+  
+  
+    
+  
+  Preliminaires
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../lecture-01/" class="md-tabs__link">
+          
+  
+  
+  Curves
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../lecture-04/" class="md-tabs__link">
+          
+  
+  
+  Regular Surfaces
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+    
+  
+  
+    
+    
+      <li class="md-tabs__item md-tabs__item--active">
+        <a href="../lecture-07/" class="md-tabs__link">
+          
+  
+  
+  The Geometry of the Gauss Map
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../lecture-13/" class="md-tabs__link">
+          
+  
+  
+  The Intrinsic Geometry of Surfaces
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../lecture-18/" class="md-tabs__link">
+          
+  
+  
+  Global Differential Geometry
+
+        </a>
+      </li>
+    
+  
+
+      
+    </ul>
+  </div>
+</nav>
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+  
+
+
+<nav class="md-nav md-nav--primary md-nav--lifted" aria-label="导航栏" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="微分几何 ICTP" class="md-nav__button md-logo" aria-label="微分几何 ICTP" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    微分几何 ICTP
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/GuitarYuu/math-lecture-site-public" title="前往仓库" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"/></svg>
+  </div>
+  <div class="md-source__repository">
+    GuitarYuu/math-lecture-site-public
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    首页
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    课程首页
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../preliminaires/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Preliminaires
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Curves
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Curves
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../lecture-01/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Lecture 1
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../lecture-02/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Lecture 2
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../lecture-03/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Lecture 3
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_5" >
+        
+          
+          <label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Regular Surfaces
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Regular Surfaces
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../lecture-04/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Lecture 4
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../lecture-05/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Lecture 5
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../lecture-06/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Lecture 6
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+    
+    
+      
+        
+        
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_6" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_6" id="__nav_6_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    The Geometry of the Gauss Map
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_6_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_6">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    The Geometry of the Gauss Map
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../lecture-07/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Lecture 7
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Lecture 8
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Lecture 8
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="目录">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      目录
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        第二基本形式的几何意义
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../lecture-09/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Lecture 9
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../lecture-10/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Lecture 10
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../lecture-11/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Lecture 11
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../lecture-12/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Lecture 12
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_7" >
+        
+          
+          <label class="md-nav__link" for="__nav_7" id="__nav_7_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    The Intrinsic Geometry of Surfaces
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_7_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_7">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    The Intrinsic Geometry of Surfaces
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../lecture-13/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Lecture 13
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../lecture-14/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Lecture 14
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../lecture-15/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Lecture 15
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../lecture-16/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Lecture 16
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../lecture-17/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Lecture 17
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_8" >
+        
+          
+          <label class="md-nav__link" for="__nav_8" id="__nav_8_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Global Differential Geometry
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_8_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_8">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Global Differential Geometry
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../lecture-18/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Lecture 18
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../lecture-19/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Lecture 19
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../lecture-20/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Lecture 20
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="目录">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      目录
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        第二基本形式的几何意义
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+
+<h1 id="8">第 8 讲<a class="headerlink" href="#8" title="Permanent link">&para;</a></h1>
+<blockquote>
+<p>章节：<strong>Gauss 映射的几何</strong></p>
+</blockquote>
+<div class="admonition example">
+<p class="admonition-title">例子</p>
+<ol>
+<li>考虑半径为 <span class="arithmatex">\(r&gt;0\)</span> 的圆柱面</li>
+</ol>
+<div class="arithmatex">\[
+S=\{(x,y,z)\in\mathbb{R}^3\mid x^2+y^2=r^2\}.
+\]</div>
+<p>令</p>
+<div class="arithmatex">\[
+f(x,y,z)=x^2+y^2,
+\qquad
+S=f^{-1}(r^2).
+\]</div>
+<p>对 <span class="arithmatex">\(p=(x,y,z)\in S\)</span>，取外向单位法向量</p>
+<div class="arithmatex">\[
+\nabla f(p)=2(x,y,0),
+\qquad
+N(p)=\frac{\nabla f(p)}{|\nabla f(p)|}=\frac1r(x,y,0).
+\]</div>
+<p>又有</p>
+<div class="arithmatex">\[
+T_pS=\ker df_p
+=
+\{v\in\mathbb{R}^3\mid\langle\nabla f(p),v\rangle=0\}.
+\]</div>
+<p>若 <span class="arithmatex">\(v=(v_1,v_2,v_3)\in T_pS\)</span>，则</p>
+<div class="arithmatex">\[
+dN_p(v)=\frac1r(v_1,v_2,0).
+\]</div>
+<p>因而</p>
+<div class="arithmatex">\[
+\mathrm{II}_p(v,w)
+=
+-\frac1r(v_1w_1+v_2w_2).
+\]</div>
+<p>沿圆柱轴的竖直方向满足 <span class="arithmatex">\(dN_p(v)=0\)</span>；沿横截圆的切方向满足</p>
+<div class="arithmatex">\[
+dN_p(v)=\frac1r v.
+\]</div>
+<p>因此</p>
+<div class="arithmatex">\[
+k_1(p)=-\frac1r,
+\qquad
+k_2(p)=0,
+\]</div>
+<p>以及</p>
+<div class="arithmatex">\[
+K(p)=0,
+\qquad
+H(p)=-\frac1{2r}.
+\]</div>
+</div>
+<p>平面的 Gauss 曲率为零，但圆柱面的 Gauss 曲率也为零。因此，<span class="arithmatex">\(K=0\)</span> 并不能单独刻画平面；这一区别将在后面进一步讨论。</p>
+<h2 id="_1">第二基本形式的几何意义<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h2>
+<div class="admonition definition">
+<p class="admonition-title">定义</p>
+<p>设 <span class="arithmatex">\(\alpha:I\to S\)</span> 是以弧长为参数的正则曲线，且 <span class="arithmatex">\(\alpha(0)=p\)</span>。把 <span class="arithmatex">\(\alpha\)</span> 看作 <span class="arithmatex">\(\mathbb{R}^3\)</span> 中的曲线，记其曲率为 <span class="arithmatex">\(k\)</span>、主法向量为 <span class="arithmatex">\(n\)</span>。若 <span class="arithmatex">\(N\)</span> 是曲面的单位法向量场，令</p>
+<div class="arithmatex">\[
+\cos\theta=\langle n,N\rangle.
+\]</div>
+<p>数值</p>
+<div class="arithmatex">\[
+k_n=k\cos\theta
+\]</div>
+<p>称为 <span class="arithmatex">\(\alpha\)</span> 在 <span class="arithmatex">\(p\)</span> 处相对于曲面 <span class="arithmatex">\(S\)</span> 的<strong>法曲率</strong>。等价地，</p>
+<div class="arithmatex">\[
+k_n(p)=\langle\alpha''(0),N(p)\rangle.
+\]</div>
+</div>
+<p>这里必须区分曲线的主法向量 <span class="arithmatex">\(n\)</span> 与曲面的单位法向量 <span class="arithmatex">\(N\)</span>。法曲率是曲线的曲率向量在曲面法方向上的有向分量，因而也依赖于曲面的定向。</p>
+<p>沿曲线记 <span class="arithmatex">\(N(s)=N(\alpha(s))\)</span>。由</p>
+<div class="arithmatex">\[
+\langle N(s),\alpha'(s)\rangle\equiv0
+\]</div>
+<p>求导可得</p>
+<div class="arithmatex">\[
+\langle N'(s),\alpha'(s)\rangle
++
+\langle N(s),\alpha''(s)\rangle=0.
+\]</div>
+<p>因此，在 <span class="arithmatex">\(s=0\)</span> 处有</p>
+<div class="arithmatex">\[
+\begin{aligned}
+\mathrm{II}_p(\alpha'(0),\alpha'(0))
+&amp;=-\langle dN_p(\alpha'(0)),\alpha'(0)\rangle\\
+&amp;=-\langle N'(0),\alpha'(0)\rangle\\
+&amp;=\langle N(p),\alpha''(0)\rangle\\
+&amp;=k_n(p).
+\end{aligned}
+\]</div>
+<div class="admonition theorem">
+<p class="admonition-title">定理</p>
+<p>设 <span class="arithmatex">\(v\in T_pS\)</span> 且 <span class="arithmatex">\(|v|=1\)</span>。所有满足</p>
+<div class="arithmatex">\[
+\alpha(0)=p,
+\qquad
+\alpha'(0)=v
+\]</div>
+<p>的单位速正则曲线，在 <span class="arithmatex">\(p\)</span> 处都有相同的法曲率；其值为</p>
+<div class="arithmatex">\[
+k_n(v)=\mathrm{II}_p(v,v).
+\]</div>
+</div>
+<p>因此，曲线在 <span class="arithmatex">\(p\)</span> 处的法曲率只由初始切方向 <span class="arithmatex">\(v\)</span> 决定。对称算子 <span class="arithmatex">\(-dN_p\)</span> 的最小和最大特征值，恰是二次型 <span class="arithmatex">\(v\mapsto\mathrm{II}_p(v,v)\)</span> 在单位圆上的最小值和最大值。因此</p>
+<div class="arithmatex">\[
+k_1(p)
+=
+\min_{|v|=1}\mathrm{II}_p(v,v),
+\qquad
+k_2(p)
+=
+\max_{|v|=1}\mathrm{II}_p(v,v).
+\]</div>
+<p>特别地，任意单位切方向上的法曲率都介于 <span class="arithmatex">\(k_1(p)\)</span> 与 <span class="arithmatex">\(k_2(p)\)</span> 之间。</p>
+<p>设 <span class="arithmatex">\(e_1,e_2\)</span> 是 <span class="arithmatex">\(-dN_p\)</span> 的一组标准正交特征向量，分别对应 <span class="arithmatex">\(k_1,k_2\)</span>。对</p>
+<div class="arithmatex">\[
+v=\cos\theta\,e_1+\sin\theta\,e_2,
+\]</div>
+<p>有下面的 Euler 公式。</p>
+<div class="admonition note">
+<p class="admonition-title">Euler 公式</p>
+<div class="arithmatex">\[
+\begin{aligned}
+k_n(v)
+&amp;=\mathrm{II}_p(v,v)\\
+&amp;=\langle-dN_p(v),v\rangle\\
+&amp;=k_1\cos^2\theta+k_2\sin^2\theta.
+\end{aligned}
+\]</div>
+</div>
+<div class="admonition definition">
+<p class="admonition-title">定义</p>
+<p>设 <span class="arithmatex">\(p\in S\)</span>。</p>
+<ol>
+<li>若 <span class="arithmatex">\(K(p)&gt;0\)</span>，则称 <span class="arithmatex">\(p\)</span> 为<strong>椭圆点</strong>。</li>
+<li>若 <span class="arithmatex">\(K(p)&lt;0\)</span>，则称 <span class="arithmatex">\(p\)</span> 为<strong>双曲点</strong>。</li>
+<li>若 <span class="arithmatex">\(K(p)=0\)</span> 且 <span class="arithmatex">\(dN_p\ne0\)</span>，则称 <span class="arithmatex">\(p\)</span> 为<strong>抛物点</strong>。</li>
+<li>若 <span class="arithmatex">\(dN_p=0\)</span>，则称 <span class="arithmatex">\(p\)</span> 为<strong>平点</strong>。</li>
+<li>若 <span class="arithmatex">\(k_1(p)=k_2(p)\)</span>，则称 <span class="arithmatex">\(p\)</span> 为<strong>脐点</strong>。</li>
+</ol>
+</div>
+<p>圆柱面上的点是抛物点，而平面上的点是平点。不过，存在含有平点但并非平面的曲面，所以单个平点不能决定曲面的整体几何。</p>
+<details class="question">
+<summary>习题</summary>
+<p>证明球面 <span class="arithmatex">\(S_{p_0}^2(r)\)</span> 上的每个点都是脐点。</p>
+</details>
+<p>单个脐点同样不能决定曲面的整体形状。正确的整体结论需要假设每一点都是脐点。</p>
+<div class="admonition proposition">
+<p class="admonition-title">命题</p>
+<p>若 <span class="arithmatex">\(S\)</span> 是连通正则曲面，且每个 <span class="arithmatex">\(p\in S\)</span> 都是脐点，则 <span class="arithmatex">\(S\)</span> 包含在某个平面或某个球面中。</p>
+</div>
+<details class="proof">
+<summary>证明</summary>
+<p>先在局部坐标片 <span class="arithmatex">\(X:U\to S\)</span> 上选取单位法向量场 <span class="arithmatex">\(N\)</span>。因为每一点都是脐点，存在函数 <span class="arithmatex">\(\lambda:U\to\mathbb{R}\)</span>，使</p>
+<div class="arithmatex">\[
+dN_{X(u,v)}=\lambda(u,v)\operatorname{Id}.
+\]</div>
+<p>因而</p>
+<div class="arithmatex">\[
+N_u=\lambda X_u,
+\qquad
+N_v=\lambda X_v.
+\]</div>
+<p>由上式可知 <span class="arithmatex">\(\lambda\)</span> 光滑。对两式分别求混合偏导，并利用 <span class="arithmatex">\(N_{uv}=N_{vu}\)</span>、<span class="arithmatex">\(X_{uv}=X_{vu}\)</span>，得到</p>
+<div class="arithmatex">\[
+\lambda_vX_u=\lambda_uX_v.
+\]</div>
+<p>因为 <span class="arithmatex">\(X_u,X_v\)</span> 线性无关，所以</p>
+<div class="arithmatex">\[
+\lambda_u=\lambda_v=0.
+\]</div>
+<p>因此 <span class="arithmatex">\(\lambda\)</span> 在每个连通坐标片上为常数。</p>
+<ul>
+<li>若 <span class="arithmatex">\(\lambda=0\)</span>，则 <span class="arithmatex">\(N\)</span> 为常向量。于是</li>
+</ul>
+<div class="arithmatex">\[
+\langle X,N\rangle
+\]</div>
+<p>为常数，所以 <span class="arithmatex">\(X(U)\)</span> 包含在一个平面中。</p>
+<ul>
+<li>若 <span class="arithmatex">\(\lambda\ne0\)</span>，则</li>
+</ul>
+<div class="arithmatex">\[
+X-\frac1\lambda N=c
+\]</div>
+<p>为常向量，故</p>
+<div class="arithmatex">\[
+|X-c|^2=\frac1{\lambda^2}.
+\]</div>
+<p>所以 <span class="arithmatex">\(X(U)\)</span> 包含在以 <span class="arithmatex">\(c\)</span> 为中心、半径为 <span class="arithmatex">\(1/|\lambda|\)</span> 的球面中。</p>
+<p>这说明每个连通坐标片都包含在一个平面或球面中。两个相交坐标片的交集含有曲面的开集；两个不同的平面、两个不同的球面，或一个平面与一个球面的交集都不可能含有二维开片。因此，相交坐标片对应的平面或球面必相同。由 <span class="arithmatex">\(S\)</span> 的连通性，这一结论可沿相交坐标片传播到整个 <span class="arithmatex">\(S\)</span>。故 <span class="arithmatex">\(S\)</span> 包含在同一个平面或同一个球面中。<span class="arithmatex">\(\square\)</span></p>
+</details>
+<div class="admonition proposition">
+<p class="admonition-title">命题</p>
+<p>在固定定向后，<span class="arithmatex">\(K\)</span> 和 <span class="arithmatex">\(H\)</span> 是光滑函数；<span class="arithmatex">\(k_1,k_2\)</span> 是连续函数，并且在非脐点组成的开集上光滑。</p>
+</div>
+<details class="proof">
+<summary>证明</summary>
+<p>设 <span class="arithmatex">\(X:U\to S\)</span> 是局部坐标，并取</p>
+<div class="arithmatex">\[
+N=\frac{X_u\wedge X_v}{|X_u\wedge X_v|}.
+\]</div>
+<p>在基 <span class="arithmatex">\(X_u,X_v\)</span> 下，第一基本形式和第二基本形式的矩阵分别为</p>
+<div class="arithmatex">\[
+M=
+\begin{pmatrix}
+E&amp;F\\
+F&amp;G
+\end{pmatrix},
+\qquad
+\Sigma=
+\begin{pmatrix}
+e&amp;f\\
+f&amp;g
+\end{pmatrix},
+\]</div>
+<p>其中</p>
+<div class="arithmatex">\[
+E=|X_u|^2,
+\qquad
+F=\langle X_u,X_v\rangle,
+\qquad
+G=|X_v|^2,
+\]</div>
+<p>以及</p>
+<div class="arithmatex">\[
+\begin{aligned}
+e&amp;=\mathrm{II}_p(X_u,X_u)=\langle N,X_{uu}\rangle,\\
+f&amp;=\mathrm{II}_p(X_u,X_v)=\langle N,X_{uv}\rangle,\\
+g&amp;=\mathrm{II}_p(X_v,X_v)=\langle N,X_{vv}\rangle.
+\end{aligned}
+\]</div>
+<p>形算子 <span class="arithmatex">\(A=-dN_p\)</span> 的矩阵为</p>
+<div class="arithmatex">\[
+A=M^{-1}\Sigma
+=
+\frac1{EG-F^2}
+\begin{pmatrix}
+G&amp;-F\\
+-F&amp;E
+\end{pmatrix}
+\begin{pmatrix}
+e&amp;f\\
+f&amp;g
+\end{pmatrix}.
+\]</div>
+<p>因此</p>
+<div class="arithmatex">\[
+K=\det A=\frac{eg-f^2}{EG-F^2}
+\]</div>
+<p>且</p>
+<div class="arithmatex">\[
+H=\frac12\operatorname{tr}A
+=
+\frac{eG+gE-2fF}{2(EG-F^2)}.
+\]</div>
+<p>这些表达式说明 <span class="arithmatex">\(K,H\)</span> 都是光滑函数。主曲率是方程</p>
+<div class="arithmatex">\[
+t^2-2Ht+K=0
+\]</div>
+<p>的两个根，即</p>
+<div class="arithmatex">\[
+k_{1,2}=H\mp\sqrt{H^2-K}.
+\]</div>
+<p>因而 <span class="arithmatex">\(k_1,k_2\)</span> 连续；在非脐点处 <span class="arithmatex">\(H^2-K&gt;0\)</span>，平方根光滑，所以两主曲率在非脐点组成的开集上光滑。<span class="arithmatex">\(\square\)</span></p>
+</details>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+  <script>var tabs=__md_get("__tabs");if(Array.isArray(tabs))e:for(var set of document.querySelectorAll(".tabbed-set")){var labels=set.querySelector(".tabbed-labels");for(var tab of tabs)for(var label of labels.getElementsByTagName("label"))if(label.innerText.trim()===tab){var input=document.getElementById(label.htmlFor);input.checked=!0;continue e}}</script>
+
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"/></svg>
+  回到页面顶部
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+    
+      
+      <nav class="md-footer__inner md-grid" aria-label="页脚" >
+        
+          
+          <a href="../lecture-07/" class="md-footer__link md-footer__link--prev" aria-label="上一页: Lecture 7">
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+            </div>
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                上一页
+              </span>
+              <div class="md-ellipsis">
+                Lecture 7
+              </div>
+            </div>
+          </a>
+        
+        
+          
+          <a href="../lecture-09/" class="md-footer__link md-footer__link--next" aria-label="下一页: Lecture 9">
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                下一页
+              </span>
+              <div class="md-ellipsis">
+                Lecture 9
+              </div>
+            </div>
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11z"/></svg>
+            </div>
+          </a>
+        
+      </nav>
+    
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+    <div class="md-copyright__highlight">
+      Copyright &copy; 2026
+    </div>
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "../..", "features": ["navigation.tabs", "navigation.sections", "navigation.expand", "navigation.top", "navigation.footer", "search.highlight", "search.suggest", "content.code.copy", "content.tabs.link"], "search": "../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "\u5df2\u590d\u5236", "clipboard.copy": "\u590d\u5236", "search.result.more.one": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.more.other": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 # \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.none": "\u6ca1\u6709\u627e\u5230\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.one": "\u627e\u5230 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.other": "# \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.placeholder": "\u952e\u5165\u4ee5\u5f00\u59cb\u641c\u7d22", "search.result.term.missing": "\u7f3a\u5c11", "select.version": "\u9009\u62e9\u5f53\u524d\u7248\u672c"}, "version": null}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.d7400e89.min.js"></script>
+      
+        <script src="../../assets/javascripts/site-config.js"></script>
+      
+        <script src="../../assets/javascripts/theme-boot.js"></script>
+      
+        <script src="../../assets/javascripts/mathjax-config.js"></script>
+      
+        <script src="../../assets/javascripts/vendor/mathjax/tex-mml-chtml.js"></script>
+      
+        <script src="../../assets/javascripts/interactive-math.js"></script>
+      
+    
+  </body>
+</html>

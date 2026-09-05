@@ -1,0 +1,37 @@
+[
+  {
+    "hash": "5977a9dab3056f9906114e9d43234e1397b83489a8b3b6c156a1c3786df9f738",
+    "image": "tikzcd-01.svg",
+    "status": "ok",
+    "error": "",
+    "index": 1
+  },
+  {
+    "hash": "a8f484a24e8e6edff0d38d7d623165bd8fa1f063da4737d92633046c41f7bb9e",
+    "image": "tikzcd-02.svg",
+    "status": "ok",
+    "error": "",
+    "index": 2
+  },
+  {
+    "hash": "baf49104770136295dfb419f1249591c5316c8d4158d9dccd34da3b925f4cf60",
+    "image": "tikzcd-03.svg",
+    "status": "ok",
+    "error": "",
+    "index": 3
+  },
+  {
+    "hash": "b9f10b6705b69bc03d5d355c6b3c2ad0f45f23b9737936be5e73f6dfd9f1c4fe",
+    "image": "tikzcd-04.svg",
+    "status": "ok",
+    "error": "",
+    "index": 4
+  },
+  {
+    "hash": "fcf24203098edd921f7e6f18a3eb61a9cca77d70a53fe4583e721c6c3053bcc2",
+    "image": "tikzcd-05.svg",
+    "status": "ok",
+    "error": "",
+    "index": 5
+  }
+]

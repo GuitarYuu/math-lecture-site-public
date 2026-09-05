@@ -1,0 +1,169 @@
+[data-site-theme="sjtu"] {
+  --md-primary-fg-color: #9d1d2e;
+  --md-primary-bg-color: #ffffff;
+  --md-accent-fg-color: #0969da;
+  --md-typeset-font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif;
+  --md-code-font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+  --sjtu-page-bg: #f8fafc;
+  --sjtu-text: #172033;
+  --sjtu-muted: #5f6b7d;
+  --sjtu-surface: rgba(255, 255, 255, 0.86);
+  --sjtu-border: rgba(15, 23, 42, 0.1);
+  --sjtu-focus: #0969da;
+}
+
+[data-md-color-scheme="slate"][data-site-theme="sjtu"] {
+  --md-primary-fg-color: #ef9aa5;
+  --md-primary-bg-color: #1e1e1e;
+  --md-accent-fg-color: #007fd4;
+  --md-default-bg-color: #1e1e1e;
+  --md-typeset-color: #cccccc;
+  --sjtu-page-bg: #0b1018;
+  --sjtu-text: #eef2f7;
+  --sjtu-muted: #9aa5b5;
+  --sjtu-surface: rgba(15, 23, 34, 0.88);
+  --sjtu-border: rgba(148, 163, 184, 0.22);
+  --sjtu-focus: #007fd4;
+}
+
+[data-site-theme="sjtu"] body {
+  background: var(--sjtu-page-bg);
+  color: var(--sjtu-text);
+}
+
+[data-site-theme="sjtu"] .md-header {
+  background: var(--sjtu-surface);
+  color: var(--sjtu-text);
+  border-bottom: 1px solid var(--sjtu-border);
+  box-shadow: none;
+}
+
+[data-site-theme="sjtu"] .md-header__title {
+  font-weight: 650;
+}
+
+[data-site-theme="sjtu"] .md-tabs {
+  background: var(--sjtu-surface);
+  border-bottom: 1px solid var(--sjtu-border);
+  color: var(--sjtu-muted);
+}
+
+[data-site-theme="sjtu"] .md-main {
+  background: var(--sjtu-page-bg);
+}
+
+[data-site-theme="sjtu"] .md-main__inner {
+  max-width: 60rem;
+  margin: 0 auto;
+}
+
+[data-site-theme="sjtu"] .md-content {
+  background: transparent;
+}
+
+[data-site-theme="sjtu"] .md-content__inner {
+  background: var(--sjtu-surface);
+  border: 1px solid var(--sjtu-border);
+  border-radius: 0.75rem;
+  padding: 2rem;
+  box-shadow: 0 8px 28px rgba(15, 23, 42, 0.06);
+}
+
+[data-site-theme="sjtu"] .md-typeset {
+  color: var(--sjtu-text);
+  font-size: 0.73rem;
+  line-height: 1.68;
+}
+
+[data-site-theme="sjtu"] .md-typeset a,
+[data-site-theme="sjtu"] .md-typeset a:focus,
+[data-site-theme="sjtu"] .md-typeset a:hover {
+  color: var(--sjtu-focus);
+}
+
+[data-site-theme="sjtu"] .md-typeset h1,
+[data-site-theme="sjtu"] .md-typeset h2 {
+  border-bottom: 1px solid var(--sjtu-border);
+  padding-bottom: 0.45rem;
+  font-weight: 700;
+}
+
+[data-site-theme="sjtu"] .md-typeset .admonition,
+[data-site-theme="sjtu"] .md-typeset details {
+  position: relative;
+  overflow: hidden;
+  background: var(--sjtu-surface);
+  border: 1px solid var(--sjtu-border);
+  border-left-width: 0.25rem;
+  border-radius: 0.55rem;
+  box-shadow: none;
+}
+
+[data-site-theme="sjtu"] .md-typeset .admonition > .admonition-title,
+[data-site-theme="sjtu"] .md-typeset details > summary {
+  background: transparent;
+  font-family: var(--md-code-font-family);
+  font-size: 0.72rem;
+  letter-spacing: 0.02em;
+}
+
+[data-site-theme="sjtu"] .md-typeset .admonition.definition {
+  border-left-color: rgb(74, 222, 128);
+}
+
+[data-site-theme="sjtu"] .md-typeset .admonition.theorem {
+  border-left-color: rgb(192, 132, 252);
+}
+
+[data-site-theme="sjtu"] .md-typeset .admonition.proposition,
+[data-site-theme="sjtu"] .md-typeset .admonition.lemma {
+  border-left-color: rgb(86, 156, 214);
+}
+
+[data-site-theme="sjtu"] .md-typeset .admonition.example {
+  border-left-color: rgb(251, 146, 60);
+}
+
+[data-site-theme="sjtu"] .md-typeset .admonition.proof,
+[data-site-theme="sjtu"] .md-typeset details.proof {
+  border-left-color: rgb(209, 213, 219);
+}
+
+[data-site-theme="sjtu"] .md-typeset .admonition.note,
+[data-site-theme="sjtu"] .md-typeset details.note {
+  border-left-color: rgb(96, 165, 250);
+}
+
+[data-site-theme="sjtu"] .md-typeset .admonition.info,
+[data-site-theme="sjtu"] .md-typeset details.info {
+  border-left-color: rgb(148, 163, 184);
+}
+
+[data-site-theme="sjtu"] .md-typeset .admonition.question,
+[data-site-theme="sjtu"] .md-typeset details.question {
+  border-left-color: rgb(232, 121, 249);
+}
+
+[data-site-theme="sjtu"] .md-typeset mjx-container[display="true"] {
+  background: rgba(127, 127, 127, 0.035);
+  border-radius: 0.35rem;
+  padding: 0.65rem 0.35rem;
+}
+
+[data-site-theme="sjtu"] .md-sidebar {
+  background: transparent;
+}
+
+[data-site-theme="sjtu"] .md-sidebar__inner {
+  border-right: 1px solid var(--sjtu-border);
+}
+
+[data-site-theme="sjtu"] .md-nav__link:focus,
+[data-site-theme="sjtu"] .md-nav__link:hover {
+  color: var(--sjtu-focus);
+}
+
+[data-site-theme="sjtu"] .math-card {
+  background: rgba(127, 127, 127, 0.04);
+  border-color: var(--sjtu-border);
+}

@@ -1,0 +1,186 @@
+:root {
+  --math-card-border: rgba(63, 81, 181, 0.25);
+  --math-card-background: rgba(63, 81, 181, 0.04);
+}
+
+.math-card {
+  border: 1px solid var(--math-card-border);
+  border-radius: 0.75rem;
+  padding: 1rem;
+  margin: 1rem 0;
+  background: var(--math-card-background);
+}
+
+.math-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(14rem, 1fr));
+  gap: 1rem;
+}
+
+.math-slider {
+  display: grid;
+  gap: 0.35rem;
+}
+
+.math-slider label {
+  font-weight: 700;
+}
+
+.math-plot {
+  min-height: 360px;
+}
+
+.answer-box {
+  border-left: 0.25rem solid #4caf50;
+  padding-left: 1rem;
+}
+
+.md-content,
+.md-typeset,
+.md-typeset article {
+  min-width: 0;
+}
+
+.md-typeset p,
+.md-typeset li,
+.md-typeset blockquote,
+.md-typeset .admonition,
+.md-typeset details {
+  overflow-wrap: anywhere;
+  word-break: normal;
+}
+
+.md-typeset .arithmatex {
+  max-width: 100%;
+  overflow-x: auto;
+  overflow-y: hidden;
+}
+
+/* Hide raw TeX source until MathJax replaces it with rendered containers. */
+.md-typeset .arithmatex:not(:has(mjx-container)) {
+  visibility: hidden;
+}
+
+/* Fallback: reveal raw source if MathJax has not finished within 10 seconds. */
+@keyframes reveal-unrendered-math {
+  to {
+    visibility: visible;
+  }
+}
+
+.md-typeset .arithmatex:not(:has(mjx-container)) {
+  animation: reveal-unrendered-math 0s 10s forwards;
+}
+
+.md-typeset mjx-container {
+  max-width: 100%;
+}
+
+.md-typeset mjx-container[display="true"] {
+  display: block;
+  overflow-x: auto;
+  overflow-y: hidden;
+  padding-bottom: 0.25rem;
+}
+
+.md-typeset p:has(> .arithmatex),
+.md-typeset li:has(> .arithmatex) {
+  overflow-x: auto;
+}
+
+.md-typeset li > mjx-container[display="true"] {
+  max-width: 100%;
+}
+
+.md-typeset img,
+.math-plot {
+  max-width: 100%;
+}
+
+.math-card {
+  overflow-x: auto;
+}
+
+.topology-gluing-diagram svg {
+  width: 100%;
+  max-width: 480px;
+  display: block;
+  margin: 0 auto;
+}
+
+.topology-table table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 0.5rem 0;
+}
+
+.topology-table th,
+.topology-table td {
+  border: 1px solid rgba(15, 23, 42, 0.18);
+  padding: 0.4rem 0.6rem;
+  text-align: center;
+  overflow-wrap: anywhere;
+}
+
+.topology-glue-square rect {
+  fill: rgba(63, 81, 181, 0.05);
+  stroke: rgba(15, 23, 42, 0.35);
+  stroke-width: 1.5;
+}
+
+.topology-glue-edge {
+  stroke-width: 4;
+}
+
+.topology-glue-edge-horizontal {
+  stroke: #e91e63;
+}
+
+.topology-glue-edge-vertical {
+  stroke: #3f51b5;
+}
+
+.topology-glue-arrow {
+  fill: none;
+  stroke-width: 2;
+}
+
+.topology-glue-square line + path.topology-glue-arrow,
+.topology-glue-square .topology-glue-arrow {
+  stroke: #e91e63;
+}
+
+.topology-glue-label,
+.topology-glue-result-label,
+.topology-glue-result-name {
+  font-family: var(--md-code-font-family, monospace);
+  font-size: 11px;
+  fill: currentColor;
+  opacity: 0.85;
+}
+
+.topology-glue-result-name {
+  font-size: 15px;
+  font-weight: 700;
+}
+
+.topology-glue-result circle {
+  fill: none;
+  stroke: rgba(15, 23, 42, 0.4);
+  stroke-width: 1.5;
+}
+
+.topology-glue-result path {
+  fill: none;
+  stroke: rgba(15, 23, 42, 0.4);
+  stroke-width: 1.5;
+}
+
+.topology-interactive-card select {
+  padding: 0.25rem 0.5rem;
+  border-radius: 0.4rem;
+  border: 1px solid rgba(15, 23, 42, 0.25);
+  background: transparent;
+  color: inherit;
+  font: inherit;
+}

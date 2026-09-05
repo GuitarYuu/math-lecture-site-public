@@ -1,0 +1,156 @@
+[
+  {
+    "code": "\\begin{tikzpicture}[\n\t\tscale=1.2,          \n\t\t>=Stealth,          \n\t\tdot/.style={circle, fill=black, inner sep=2pt},  \n\t\tmain-vec/.style={thick, ->, black},              \n\t\t% 3D弯曲曲面样式（黑色轮廓+填充）\n\t\tsurf-front/.style={fill=lightgray!40, draw=black, thick},  % 前侧可见曲面\n\t\tsurf-back/.style={draw=black, thick, dash pattern=on 5pt off 3pt}, % 后侧遮挡曲面\n\t\tkn-dashed/.style={thick, dash pattern=on 4pt off 2pt, purple, ->},\n\t\tlbl/.style={font=\\small, black}                  \n\t\t]\n\t\t\n\t\t% ========== 核心：3D弯曲曲面（黑色轮廓，上凸下凹） ==========\n\t\t% 前侧曲面（可见部分：黑色实线+浅灰填充，体现曲面感）\n\t\t\\draw[surf-front] \n\t\t(-3.5, 0.2) to[out=70, in=180] (-1.5, 2.1)\n\t\tto[out=0, in=110] (1.5, 2.1)\n\t\tto[out=-70, in=0] (3.5, 0.2)\n\t\tto[out=180, in=-20] (2, -1.1)\n\t\tto[out=160, in=-90] (0, -2.0)\n\t\tto[out=90, in=-160] (-2, -1.1)\n\t\tto[out=20, in=180] cycle;\n\t\t\n\t\t% 后侧曲面（遮挡部分：黑色虚线，体现透视）\n\t\t\\draw[surf-back] \n\t\t(-3.5, 0.2) to[out=-110, in=180] (-1.5, -2.1)\n\t\tto[out=0, in=-70] (1.5, -2.1)\n\t\tto[out=110, in=0] (3.5, 0.2);\n\t\t\n\t\t% 标注曲面S（贴在曲面凸起处）\n\t\t\\node[lbl, above right] at (1.3, 1.8) {$S$};\n\t\t\n\t\t% ========== 原图实际存在的标注 ==========\n\t\t% 中心点P（曲面中心）\n\t\t\\node[dot] (P) at (0, 0) {} node[lbl, above=3pt] {$P$};\n\t\t\n\t\t% 法向量N(P)（垂直于曲面）\n\t\t\\draw[main-vec] (P) -- (0, 2.2) node[lbl, above] {$N(P)$};\n\t\t\n\t\t% 任意方向α（沿曲面弯曲路径）\n\t\t\\draw[thick, orange] (P) to[out=60, in=190, looseness=1.3] (2.7, 1.4) node[lbl, right] {$\\alpha$};\n\t\t\n\t\t% 法曲率k_n（紫色虚线，沿α垂直方向）\n\t\t\\draw[kn-dashed] (P) -- (1.4, -0.8) node[lbl, below right] {$k_n$};\n\t\t\n\t\t% 三维空间R³标注\n\t\t\\node[lbl, left] at (-3.7, 0) {$\\mathbb{R}^3$};\n\t\t\n\t\t% 切平面辅助虚线（贴合曲面切平面）\n\t\t\\draw[surf-back] (-3.3, -0.1) -- (3.3, -0.1);\n\t\t\n\t\\end{tikzpicture}",
+    "hash": "7f558b9a25c3281d1da16139d186128cf7e594b34992e3607a1de925c92382d4",
+    "page": "lecture-07",
+    "index": 1,
+    "status": "ok",
+    "engine": "xelatex",
+    "converter": "dvisvgm",
+    "image": "lecture-07-01.svg",
+    "error": ""
+  },
+  {
+    "code": "\\begin{tikzpicture}[\n\t\tscale=1.2,\n\t\t>=Stealth,\n\t\tsolid line/.style={thick, black},    % 实线改为黑色（适配白底）\n\t\tdash line/.style={thick, dashed, black}, % 虚线改为黑色\n\t\tlabel/.style={black, font=\\small}    % 标注改为黑色\n\t\t]\n\t\t\n\t\t% 水平轴\n\t\t\\draw[solid line] (2, 5) -- (8, 5);\n\t\t\n\t\t% 第一组竖线\n\t\t\\draw[solid line] (4, 3) -- (4, 7);\n\t\t\\draw[dash line] (4.5, 3) -- (4.5, 7);\n\t\t\\node[label] at (4.5, 4.5) {$\\pi$};\n\t\t\n\t\t% 第二组竖线\n\t\t\\draw[dash line] (6, 3) -- (6, 7);\n\t\t\\node[label] at (6, 4.5) {$3\\pi$};\n\t\t\n\t\t% ========== 右侧手绘圆柱（视觉上明确是圆柱） ==========\n\t\t% 圆柱上下底面（椭圆弧，体现圆形透视）\n\t\t\\draw[solid line] (8.5, 6.5) arc[start angle=180, end angle=0, x radius=1cm, y radius=0.3cm]; % 上底面\n\t\t\\draw[solid line] (8.5, 3.5) arc[start angle=180, end angle=0, x radius=1cm, y radius=0.3cm]; % 下底面\n\t\t\n\t\t% 圆柱母线（连接上下底面，竖直线）\n\t\t\\draw[solid line] (8.5, 3.5) -- (8.5, 6.5);  % 左侧母线\n\t\t\\draw[solid line] (10.5, 3.5) -- (10.5, 6.5);% 右侧母线\n\t\t\n\t\t% 圆柱内部辅助弧（增强立体圆柱感）\n\t\t\\draw[solid line, thin] (8.7, 6.4) arc[start angle=180, end angle=0, x radius=0.8cm, y radius=0.2cm];\n\t\t\\draw[solid line, thin] (8.7, 3.6) arc[start angle=180, end angle=0, x radius=0.8cm, y radius=0.2cm];\n\t\\end{tikzpicture}",
+    "hash": "a6432b9945b4ea9198467a4cc349715b030cf60a409f904ac7b2db2f6d73c962",
+    "page": "lecture-13",
+    "index": 1,
+    "status": "ok",
+    "engine": "xelatex",
+    "converter": "dvisvgm",
+    "image": "lecture-13-01.svg",
+    "error": ""
+  },
+  {
+    "code": "\\begin{tikzpicture}[\n\t\tthick,\n\t\t>=stealth,\n\t\tevery node/.style={font=\\Large}\n\t\t]\n\t\t\n\t\t% 点 p\n\t\t\\node (p) at (4,4) {$p$};\n\t\t\n\t\t% 主测地线 γ(v)\n\t\t\\draw[thick] plot[smooth, tension=0.8] coordinates {(2,4.5) (4,4) (6,3.8)};\n\t\t\\node at (5,3.5) {$\\gamma(v)$};\n\t\t\\node at (6,4.2) {$\\gamma$};\n\t\t\n\t\t% γ'(v) 方向箭头\n\t\t\\draw[->, thick] (4,4) -- (5,4) node[midway,below] {$\\gamma'$};\n\t\t\n\t\t% 正交测地线族 X_v(u)\n\t\t\\draw[thick] plot[smooth, tension=0.8] coordinates {(4,4) (4.5,2) (5,1.5)};\n\t\t\\node at (4.5,1.8) {$\\gamma_v(u)$};\n\t\t\n\t\t% γ_v'(0) 箭头（竖直向上）\n\t\t\\draw[->, thick] (4,4) -- (4,5.5) node[above] {$\\gamma_v'(0)$};\n\t\t\n\t\\end{tikzpicture}",
+    "hash": "49b1c4c9726aa9d540830d2db7f7b0321555d1186621c79d048220a0fd983954",
+    "page": "lecture-15",
+    "index": 1,
+    "status": "ok",
+    "engine": "xelatex",
+    "converter": "dvisvgm",
+    "image": "lecture-15-01.svg",
+    "error": ""
+  },
+  {
+    "code": "\\begin{tikzpicture}[\n\t\tthick,\n\t\t>=stealth,\n\t\tevery node/.style={font=\\Large}\n\t\t]\n\t\t\n\t\t% 曲面 S（双叶曲面示意）\n\t\t\\draw[thick] plot[smooth, tension=0.8] coordinates {(1,6) (3,6.5) (6,6)};\n\t\t\\draw[thick] plot[smooth, tension=0.8] coordinates {(1,3) (3,3.5) (6,3)};\n\t\t\\draw[thick] (1,3) -- (1,6);\n\t\t\\draw[thick] (6,3) -- (6,6);\n\t\t\\node at (6.5,5) {$S$};\n\t\t\n\t\t% 点 p\n\t\t\\coordinate (p) at (3,4.8);\n\t\t\\fill (p) circle (2pt);\n\t\t\n\t\t% 法向量 N\n\t\t\\draw[->, thick] (p) -- (3.5,6.2) node[above] {$N$};\n\t\t\n\t\t% 曲线 γ\n\t\t\\draw[thick] plot[smooth, tension=0.8] coordinates {(2,5.2) (p) (4,4.6)};\n\t\t\\node at (3.8,4.2) {$\\gamma$};\n\t\t\n\t\t% 切向量 γ'\n\t\t\\draw[->, thick] (p) -- (3.8,4.9) node[right] {$\\gamma'$};\n\t\t\n\t\t% 向量 m（法向）\n\t\t\\draw[->, thick] (p) -- (3.2,3.8) node[below] {$n$};\n\t\t\\draw[dashed, thick] (3.2,3.8) -- (3.2,4.8); % 投影辅助线\n\t\t\n\t\t% 投影 m^T\n\t\t\\draw[->, thick] (p) -- (3.2,4.8) node[below right] {};\n\t\t\n\t\t% 公式\n\t\t\\node[anchor=west] at (1,2) {$n^T = \\text{projection of } n \\text{ on } T_p S$};\n\t\t\n\t\\end{tikzpicture}",
+    "hash": "27890e83da5895f24c99cefb3276185e61b724e0674c8c340be2864a842c5e8b",
+    "page": "lecture-16",
+    "index": 1,
+    "status": "ok",
+    "engine": "xelatex",
+    "converter": "dvisvgm",
+    "image": "lecture-16-01.svg",
+    "error": ""
+  },
+  {
+    "code": "\\begin{tikzpicture}[\n\t\tthick,\n\t\t>=stealth,\n\t\tevery node/.style={font=\\Large}\n\t\t]\n\t\t\n\t\t% 分段光滑闭曲线 γ\n\t\t\\draw[thick] plot[smooth, tension=0.8] coordinates {\n\t\t\t(2,2) (3,4) (4,2) (5,3) (6,1) (7,3) (8,2) (7,0) (5,1) (3,0) (2,2)\n\t\t};\n\t\t\n\t\t% 顶点 P_i\n\t\t\\fill (2,2) circle (2pt) node[below left] {$P_i$};\n\t\t\\fill (3,4) circle (2pt);\n\t\t\\fill (4,2) circle (2pt);\n\t\t\\fill (5,3) circle (2pt);\n\t\t\\fill (6,1) circle (2pt);\n\t\t\\fill (7,3) circle (2pt);\n\t\t\\fill (8,2) circle (2pt);\n\t\t\\fill (7,0) circle (2pt);\n\t\t\\fill (5,1) circle (2pt);\n\t\t\\fill (3,0) circle (2pt);\n\t\t\n\t\t% 外角 δ_i\n\t\t\\draw[->, thick] (2,2) arc[start angle=0, end angle=45, radius=0.5] node[midway, right] {$\\delta_i$};\n\t\t\n\t\t% 内角 α_i\n\t\t\\draw[->, thick] (2,2) arc[start angle=180, end angle=135, radius=0.5] node[midway, left] {$\\alpha_i$};\n\t\t\n\t\t% 曲线 γ 标签\n\t\t\\node at (3.5,4.2) {$\\gamma$};\n\t\t\n\t\\end{tikzpicture}",
+    "hash": "ff900c649b7f668e66a39b6985e618e633687d97da4964a375d0981230e738ea",
+    "page": "lecture-16",
+    "index": 2,
+    "status": "ok",
+    "engine": "xelatex",
+    "converter": "dvisvgm",
+    "image": "lecture-16-02.svg",
+    "error": ""
+  },
+  {
+    "code": "\\begin{tikzpicture}[thick, scale=2]\n\t\t% 球面轮廓（3D 效果：外圆 + 椭圆模拟球面）\n\t\t\\draw (0,0) circle (1); % 主轮廓圆\n\t\t\\draw (0,0) ellipse (1 and 0.4); % 纬圆（模拟3D球面）\n\t\t\n\t\t% 赤道分割线（前实后虚）\n\t\t\\draw (1,0) arc[start angle=0, end angle=180, radius=1]; % 前半实线\n\t\t\\draw[dashed] (-1,0) arc[start angle=180, end angle=360, radius=1]; % 后半虚线\n\t\t\n\t\t% 标注面和边\n\t\t\\node at (0, 0.6) {$f_1$}; % 上半球面\n\t\t\\node at (0,-0.6) {$f_2$}; % 下半球面\n\t\t\\node at (1.2, 0) {$e_i$}; % 赤道边\n\t\\end{tikzpicture}",
+    "hash": "efa55584ea84f0a46212fb707bfc0a9d7ffdbab99d62bd916fcf569f209c861b",
+    "page": "lecture-16",
+    "index": 3,
+    "status": "ok",
+    "engine": "xelatex",
+    "converter": "dvisvgm",
+    "image": "lecture-16-03.svg",
+    "error": ""
+  },
+  {
+    "code": "\\begin{tikzpicture}[thick]\n\t\t% 外圆\n\t\t\\draw (0,0) circle (2);\n\t\t% 标注\n\t\t\\node at (0, 1.5) {$p_i$};\n\t\t\\node at (0, 0)   {$f_1$};\n\t\\end{tikzpicture}",
+    "hash": "0e3c0fb1bad7298fb94c6f0030d00fc5851ec541d97323b47ebdc744ab2f12b3",
+    "page": "lecture-16",
+    "index": 4,
+    "status": "ok",
+    "engine": "xelatex",
+    "converter": "dvisvgm",
+    "image": "lecture-16-04.svg",
+    "error": ""
+  },
+  {
+    "code": "\\begin{tikzpicture}[thick]\n\t\t% 球面轮廓\n\t\t\\draw (0,0) circle (2);\n\t\t\n\t\t% 竖直赤道（经线，前半实，后半虚）\n\t\t\\draw[dashed] (0,0) ellipse (0.4 and 2); % 辅助虚线，增强3D感\n\t\t\n\t\t% 水平纬线（前半实，后半虚）\n\t\t\\draw (0,0) ellipse (2 and 0.8);\n\t\t\\draw[dashed] (0,0) ellipse (2 and 0.8);\n\t\t\n\t\t% 顶点\n\t\t\\fill (0,2) circle (2pt);\n\t\t\\fill (0,-2) circle (2pt);\n\t\t\\fill (2,0) circle (2pt);\n\t\t\\fill (-2,0) circle (2pt);\n\t\t\\fill (1.732,1) circle (2pt);\n\t\t\\fill (-1.732,1) circle (2pt);\n\t\t\\fill (1.732,-1) circle (2pt);\n\t\t\\fill (-1.732,-1) circle (2pt);\n\t\t\n\t\t% 标注\n\t\t\\node at (3,1.5) {$V=6$};\n\t\t\\node at (3,0.5) {$E=12$};\n\t\t\\node at (3,-0.5) {$F=8$};\n\t\\end{tikzpicture}",
+    "hash": "60787a5291ca22119d243da924706434fc2bf8190f7767541b3b6e84ddba8c06",
+    "page": "lecture-16",
+    "index": 5,
+    "status": "ok",
+    "engine": "xelatex",
+    "converter": "dvisvgm",
+    "image": "lecture-16-05.svg",
+    "error": ""
+  },
+  {
+    "code": "\\begin{tikzpicture}[thick]\n\t\t% 正方形商空间\n\t\t\\draw (0,0) rectangle (2,2);\n\t\t\\draw[->] (0,0) -- (0,1) node[midway,left] {$\\uparrow$};\n\t\t\\draw[->] (0,2) -- (0,1) node[midway,left] {$\\uparrow$};\n\t\t\\draw[->] (2,0) -- (2,1) node[midway,right] {$\\uparrow$};\n\t\t\\draw[->] (2,2) -- (2,1) node[midway,right] {$\\uparrow$};\n\t\t\\draw[->] (0,0) -- (1,0) node[midway,below] {$\\rightarrow$};\n\t\t\\draw[->] (0,2) -- (1,2) node[midway,above] {$\\rightarrow$};\n\t\t\\draw[->] (2,0) -- (1,0) node[midway,below] {$\\rightarrow$};\n\t\t\\draw[->] (2,2) -- (1,2) node[midway,above] {$\\rightarrow$};\n\t\t% 右侧环面示意\n\t\t\\draw (4,1) ellipse (1 and 0.5);\n\t\t\\draw (4,1) ellipse (0.5 and 0.2);\n\t\t\\node at (4, 1) {$-$};\n\t\t% 欧拉特征\n\t\t\\node at (4, -0.5) {$\\chi(S) = 0$};\n\t\\end{tikzpicture}",
+    "hash": "be5e245ce8a57efc3f761d242455b1852f6bf265234a6a683af6f829e8ff29e3",
+    "page": "lecture-17",
+    "index": 1,
+    "status": "ok",
+    "engine": "xelatex",
+    "converter": "dvisvgm",
+    "image": "lecture-17-01.svg",
+    "error": ""
+  },
+  {
+    "code": "\\begin{tikzpicture}[thick]\n\t\t% 正方形商空间\n\t\t\\draw (0,0) rectangle (2,2);\n\t\t\\draw (0,0) -- (2,2); % 对角线\n\t\t\\draw[->] (0,0) -- (0,1) node[midway,left] {$\\uparrow$};\n\t\t\\draw[->] (0,2) -- (0,1) node[midway,left] {$\\downarrow$};\n\t\t\\draw[->] (2,0) -- (2,1) node[midway,right] {$\\downarrow$};\n\t\t\\draw[->] (2,2) -- (2,1) node[midway,right] {$\\uparrow$};\n\t\t\\draw[->] (0,0) -- (1,0) node[midway,below] {$\\rightarrow$};\n\t\t\\draw[->] (0,2) -- (1,2) node[midway,above] {$\\rightarrow$};\n\t\t\\draw[->] (2,0) -- (1,0) node[midway,below] {$\\leftarrow$};\n\t\t\\draw[->] (2,2) -- (1,2) node[midway,above] {$\\leftarrow$};\n\t\t% 标注\n\t\t\\node at (2.5, 2) {$S'$};\n\t\t\\node at (3.5, 1) {$\\chi(S') = 0$};\n\t\t\\node at (1, -0.5) {$1 - 3 + 2$};\n\t\\end{tikzpicture}",
+    "hash": "1a5c804d1215737b2a0d3a237e8f51bd0bea7039915e0c5645cdaa25e4f99094",
+    "page": "lecture-17",
+    "index": 2,
+    "status": "ok",
+    "engine": "xelatex",
+    "converter": "dvisvgm",
+    "image": "lecture-17-02.svg",
+    "error": ""
+  },
+  {
+    "code": "\\begin{tikzpicture}[thick]\n\t\t% 带4个洞的曲面（对应g=2）\n\t\t\\draw plot[smooth, tension=0.8] coordinates {\n\t\t\t(0,0) (1,0.5) (2,0) (3,0.5) (4,0) (5,0.5) (6,0) (7,0.5) (8,0)\n\t\t\t(7.5,-0.5) (6.5,-1) (5.5,-0.5) (4.5,-1) (3.5,-0.5) (2.5,-1) (1.5,-0.5) (0.5,-1) (0,0)\n\t\t};\n\t\t% 洞的标记\n\t\t\\draw (1,0) ellipse (0.3 and 0.15);\n\t\t\\draw (3,0) ellipse (0.3 and 0.15);\n\t\t\\draw (5,0) ellipse (0.3 and 0.15);\n\t\t\\draw (7,0) ellipse (0.3 and 0.15);\n\t\t% 欧拉特征公式\n\t\t\\node at (4, -1.5) {$\\chi(S) = 2 - 2g$};\n\t\\end{tikzpicture}",
+    "hash": "41bc88645d74128d53e8bf974c938a11b6674b2fb8bbc9ce26eeb41c30109f7a",
+    "page": "lecture-17",
+    "index": 3,
+    "status": "ok",
+    "engine": "xelatex",
+    "converter": "dvisvgm",
+    "image": "lecture-17-03.svg",
+    "error": ""
+  },
+  {
+    "code": "\\begin{tikzpicture}[>=Latex, scale=1.1]\n\t\t\n\t\t% ---------------- Right coordinate system (x,y) ----------------\n\t\t\\begin{scope}[shift={(4,0)}]\n\t\t\t% Axes\n\t\t\t\\draw[->] (-1.8,0) -- (1.8,0) node[right] {$x$};\n\t\t\t\\draw[->] (0,-1.8) -- (0,1.8) node[above] {$y$};\n\t\t\t\n\t\t\t% Dashed region\n\t\t\t\\draw[dashed] (0,0) circle (1.3);\n\t\t\t\n\t\t\t% Curve (x(t),y(t))\n\t\t\t\\draw[thick] \n\t\t\tplot[smooth] coordinates {\n\t\t\t\t(-1,0.5)\n\t\t\t\t(-0.3,0.2)\n\t\t\t\t(0.3,-0.2)\n\t\t\t\t(1,-0.4)\n\t\t\t};\n\t\t\t\n\t\t\t\\node at (0.8,1.5) {$(x(t),y(t))$};\n\t\t\\end{scope}\n\t\t\n\t\t% ---------------- Left coordinate system (u,v) ----------------\n\t\t\\begin{scope}[shift={(-4,0)}]\n\t\t\t% Axes\n\t\t\t\\draw[->] (-1.8,0) -- (1.8,0) node[right] {$u$};\n\t\t\t\\draw[->] (0,-1.8) -- (0,1.8) node[above] {$v$};\n\t\t\t\n\t\t\t% Dashed region\n\t\t\t\\draw[dashed] (0,0) circle (1.3);\n\t\t\t\n\t\t\t% Curve (u(t),v(t))\n\t\t\t\\draw[thick] \n\t\t\tplot[smooth] coordinates {\n\t\t\t\t(-1,-0.3)\n\t\t\t\t(-0.4,0.1)\n\t\t\t\t(0.4,0.4)\n\t\t\t\t(1,0.6)\n\t\t\t};\n\t\t\t\n\t\t\t\\node at (0.8,1.5) {$(u(t),v(t))$};\n\t\t\\end{scope}\n\t\t\n\t\t% ---------------- Mapping arrow ----------------\n\t\t\\draw[->, thick] (2.2,0) -- (-2.2,0);\n\t\t\\node at (0,0.4) {$\\Phi$};\n\t\t\n\t\t% ---------------- Surface S ----------------\n\t\t\\begin{scope}[shift={(0,3)}]\n\t\t\t\\draw[thick]\n\t\t\t(-2,0) .. controls (-1.5,0.6) and (1.5,0.6) .. (2,0)\n\t\t\t-- (1.5,-1.2)\n\t\t\t.. controls (0,-0.6) and (-0.5,-0.6) .. (-1.5,-1.2)\n\t\t\t-- cycle;\n\t\t\t\n\t\t\t\\node at (1.9,-0.2) {$S$};\n\t\t\\end{scope}\n\t\t\n\t\t% Arrow from left plane to surface\n\t\t\\draw[->, thick] (-4,1.5) .. controls (-2,3) .. (-1,3);\n\t\t\n\t\t% Definition of Phi\n\t\t\\node at (0,-2.2) {$\\Phi(x,y) = (u(x,y), v(x,y))$};\n\t\t\n\t\\end{tikzpicture}",
+    "hash": "1cb5a1a49cbd60393d9a890f9759ad1e171453132a3b74a6592a7d068e8c2134",
+    "page": "lecture-17",
+    "index": 4,
+    "status": "ok",
+    "engine": "xelatex",
+    "converter": "dvisvgm",
+    "image": "lecture-17-04.svg",
+    "error": ""
+  },
+  {
+    "code": "\\begin{tikzpicture}[>=Latex, scale=1.1]\n\t\t\n\t\t% ===================== Surface S =====================\n\t\t\\begin{scope}[shift={(0,3)}]\n\t\t\t\n\t\t\t% Surface shape\n\t\t\t\\draw[thick]\n\t\t\t(-3,0) \n\t\t\t.. controls (-2,1) and (2,1) .. (3,0)\n\t\t\t-- (2.2,-1.5)\n\t\t\t.. controls (0,-0.6) and (-0.8,-0.6) .. (-2.2,-1.5)\n\t\t\t-- cycle;\n\t\t\t\n\t\t\t\\node at (-2.8,0.5) {$S$};\n\t\t\t\n\t\t\t% Region W on surface\n\t\t\t\\draw[dashed]\n\t\t\t(0.5,-0.3) ellipse (1.2 and 0.6);\n\t\t\t\n\t\t\t\\node at (0.8,0.5) {$W$};\n\t\t\t\n\t\t\\end{scope}\n\t\t\n\t\t% ===================== Left chart =====================\n\t\t\\begin{scope}[shift={(-4,-1)}]\n\t\t\t\n\t\t\t% Axes\n\t\t\t\\draw[->] (-2,0) -- (2,0);\n\t\t\t\\draw[->] (0,-2) -- (0,2);\n\t\t\t\n\t\t\t\\node at (-1.8,1.8) {$U_\\alpha$};\n\t\t\t\n\t\t\t% Preimage region\n\t\t\t\\draw[dashed] \n\t\t\t(0.5,-0.8) circle (0.8);\n\t\t\t\n\t\t\t% Shaded\n\t\t\t\\fill[pattern=north east lines] \n\t\t\t(0.5,-0.8) circle (0.8);\n\t\t\t\n\t\t\t\\node at (0.8,-1.9) {$\\varphi_\\alpha^{-1}(W)$};\n\t\t\t\n\t\t\\end{scope}\n\t\t\n\t\t% ===================== Right chart =====================\n\t\t\\begin{scope}[shift={(4,-1)}]\n\t\t\t\n\t\t\t% Axes\n\t\t\t\\draw[->] (-2,0) -- (2,0);\n\t\t\t\\draw[->] (0,-2) -- (0,2);\n\t\t\t\n\t\t\t\\node at (1.6,1.8) {$U_\\beta$};\n\t\t\t\n\t\t\t% Preimage region\n\t\t\t\\draw[dashed] \n\t\t\t(-0.3,-0.5) circle (0.8);\n\t\t\t\n\t\t\t\\fill[pattern=north east lines] \n\t\t\t(-0.3,-0.5) circle (0.8);\n\t\t\t\n\t\t\t\\node at (0.5,-1.9) {$\\varphi_\\beta^{-1}(W)$};\n\t\t\t\n\t\t\\end{scope}\n\t\t\n\t\t% ===================== Arrows =====================\n\t\t\n\t\t% From left chart to surface\n\t\t\\draw[->, thick] (-4,-0.2) \n\t\t.. controls (-3,1.5) .. (-1,2);\n\t\t\n\t\t\\node at (-2.5,1.2) {$\\varphi_\\alpha$};\n\t\t\n\t\t% From right chart to surface\n\t\t\\draw[->, thick] (4,-0.2) \n\t\t.. controls (3,1.5) .. (1,2);\n\t\t\n\t\t\\node at (2.5,1.2) {$\\varphi_\\beta$};\n\t\t\n\t\t% Horizontal arrow between charts\n\t\t\\draw[->, thick] (-2,-2.2) -- (2,-2.2);\n\t\t\n\t\t\\node at (0,-2.6) \n\t\t{$\\varphi_\\beta^{-1} \\circ \\varphi_\\alpha$};\n\t\t\n\t\\end{tikzpicture}",
+    "hash": "c536a69413033d31c57829e96dabbc712ace07d6ba448a97ed0e68f06a4ab73a",
+    "page": "lecture-18",
+    "index": 1,
+    "status": "ok",
+    "engine": "xelatex",
+    "converter": "dvisvgm",
+    "image": "lecture-18-01.svg",
+    "error": ""
+  },
+  {
+    "code": "\\begin{tikzpicture}[>=Latex, scale=1.05]\n\t\t\n\t\t\n\t\t% ===================== M1 =====================\n\t\t\\begin{scope}[shift={(-2,2)}]\n\t\t\t\n\t\t\t% Main surface M1\n\t\t\t\\draw[thick] (-3,0) ellipse (3 and 0.8);\n\t\t\t\\node at (3.4,0.2) {$M_1$};\n\t\t\t\n\t\t\t% Neighborhood around p\n\t\t\t\\draw[thick] (-0.5,0) ellipse (1 and 0.3);\n\t\t\t\\fill (-0.5,0) circle (1.5pt);\n\t\t\t\\node[below] at (-0.5,0) {$p$};\n\t\t\t\n\t\t\\end{scope}\n\t\t\n\t\t% ===================== M2 =====================\n\t\t\\begin{scope}[shift={(4,1)}]\n\t\t\t\n\t\t\t\\draw[thick] (-2.5,0) ellipse (2.5 and 0.8);\n\t\t\t\\node at (2.9,0.2) {$M_2$};\n\t\t\t\n\t\t\t% phi(p)\n\t\t\t\\draw[dashed] (-0.2,0) ellipse (0.8 and 0.25);\n\t\t\t\\node at (-0.2,0) {$\\varphi(p)$};\n\t\t\t\n\t\t\\end{scope}\n\t\t\n\t\t% ===================== Main arrow =====================\n\t\t\\draw[->, thick] (1,2) to[out=-20,in=180] (2,1.2);\n\t\t\\node at (1.5,2.2) {$\\varphi$};\n\t\t\n\t\t% ===================== Bottom left chart U_beta =====================\n\t\t\\begin{scope}[shift={(-4,-1.5)}]\n\t\t\t\n\t\t\t% Axes\n\t\t\t\\draw[->] (-1.5,0) -- (1.5,0);\n\t\t\t\\draw[->] (0,-1.5) -- (0,1.5);\n\t\t\t\n\t\t\t% Region\n\t\t\t\\draw[thick] \n\t\t\tplot[smooth cycle] coordinates {\n\t\t\t\t(-0.8,-0.5)\n\t\t\t\t(-1,0.6)\n\t\t\t\t(-0.2,1)\n\t\t\t\t(0.8,0.3)\n\t\t\t\t(0.3,-0.8)\n\t\t\t};\n\t\t\t\n\t\t\t\\node at (1.2,-1.6) {$U_\\beta$};\n\t\t\t\n\t\t\\end{scope}\n\t\t\n\t\t% ===================== Bottom middle chart =====================\n\t\t\\begin{scope}[shift={(-0.5,-1.5)}]\n\t\t\t\n\t\t\t\\draw[->] (-1.5,0) -- (1.5,0);\n\t\t\t\\draw[->] (0,-1.5) -- (0,1.5);\n\t\t\t\n\t\t\t\\draw (0.3,0.2) ellipse (0.7 and 1);\n\t\t\t\n\t\t\t\\node at (1.2,-1.6) {$U_\\alpha$};\n\t\t\t\n\t\t\\end{scope}\n\t\t\n\t\t% ===================== Bottom right chart V_gamma =====================\n\t\t\\begin{scope}[shift={(4,-2)}]\n\t\t\t\n\t\t\t\\draw[->] (-1.5,0) -- (1.5,0);\n\t\t\t\\draw[->] (0,-1.5) -- (0,1.5);\n\t\t\t\n\t\t\t\\draw[thick] \n\t\t\tplot[smooth cycle] coordinates {\n\t\t\t\t(-0.3,-0.8)\n\t\t\t\t(-0.9,0.3)\n\t\t\t\t(0.2,1)\n\t\t\t\t(0.9,0.2)\n\t\t\t\t(0.4,-0.9)\n\t\t\t};\n\t\t\t\n\t\t\t\\node at (1.2,-1.6) {$V_\\gamma$};\n\t\t\t\n\t\t\\end{scope}\n\t\t\n\t\t% ===================== Chart arrows =====================\n\t\t\n\t\t% From U_beta to M1\n\t\t\\draw[->, thick] (-4,-0.2) to[out=70,in=-160] (-3,2);\n\t\t\\node at (-4.5,0.7) {$f_\\beta$};\n\t\t\n\t\t% From U_alpha to M1\n\t\t\\draw[->, thick] (-0.5,-0.2) to[out=80,in=-20] (-1,2);\n\t\t\\node at (0,0.8) {$f_\\alpha$};\n\t\t\n\t\t% From V_gamma to M2\n\t\t\\draw[->, thick] (4,-0.5) to[out=80,in=-30] (4,1);\n\t\t\\node at (4.7,-0.1) {$g_\\gamma$};\n\t\t\n\t\t% Dotted horizontal transition\n\t\t\\draw[dashed,->] (-2,-2) -- (2,-2);\n\t\t\n\t\\end{tikzpicture}",
+    "hash": "966ab67944f07b123457b9a0581aa34d822c33567ad0fc7b92a3ad1353633fb0",
+    "page": "lecture-19",
+    "index": 1,
+    "status": "ok",
+    "engine": "xelatex",
+    "converter": "dvisvgm",
+    "image": "lecture-19-01.svg",
+    "error": ""
+  }
+]
